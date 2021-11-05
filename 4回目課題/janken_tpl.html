@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+<style>
+    body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+main{
+    border-bottom:1px solid #ccc;
+}
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+li{
+    text-align: center;
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+}
+li:hover{
+    background: #0066CC;
+    color:#fff;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>じゃんけん</h1>
+</header>
+
+<main>
+  <ul>
+    <li id="gu_btn">グー</li>
+    <li id="cho_btn">チョキ</li>
+    <li id="par_btn">パー</li>
+    
+  </ul>
+  <div>ぽん....コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+  <div id="judgment">勝ち</div>
+</main>
+
+<footer></footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+$("#gu_btn").on("click", function(){
+    //乱数を作る
+    const num = Math.ceil(Math.random()*3);
+    $("#gu_btn").html('<img src="guu.jpg">');
+    $("#gu_btn").css("background-color","skyblue");
+    if(num == 1){
+        //$("#echo").html("グー");
+        $("#pc_hands").html('グー');
+        $("#judgment").html('あいこ');
+    }
+    if(num == 2){
+        //$("#echo").html("チョキ");
+        $("#pc_hands").html('チョキ');
+        $("#judgment").html('あなたの勝ち');
+    }
+    if(num == 3){
+        //$("#echo").html("パー");
+        $("#pc_hands").html('パー');
+        $("#judgment").html('あなたの負け');
+    }
+});
+
+$("#cho_btn").on("click", function(){
+    //乱数を作る
+    const num = Math.ceil(Math.random()*3);
+    $("#cho_btn").html('<img src="choki.jpg">');
+    $("#cho_btn").css("background-color","yellow");
+    if(num == 1){
+        //$("#echo").html("グー");
+        $("#pc_hands").html('グー');
+        $("#judgment").html('あなたの勝ち');
+    }
+    if(num == 2){
+        //$("#echo").html("チョキ");
+        $("#pc_hands").html('チョキ');
+        $("#judgment").html('あいこ');
+    }
+    if(num == 3){
+        //$("#echo").html("パー");
+        $("#pc_hands").html('パー');
+        $("#judgment").html('あなたの負け');
+    }
+    
+});
+
+$("#par_btn").on("click", function(){
+    //乱数を作る
+    const num = Math.ceil(Math.random()*3);
+    $("#par_btn").html('<img src="pa.jpg">');
+    $("#par_btn").css("background-color","pink");
+    if(num == 1){
+        //$("#echo").html("グー");
+        $("#pc_hands").html('グー');
+        $("#judgment").html('勝ち');
+    }
+    if(num == 2){
+        //$("#echo").html("チョキ");
+        $("#pc_hands").html('チョキ');
+        $("#judgment").html('負け');
+    }
+    if(num == 3){
+        //$("#echo").html("パー");
+        $("#pc_hands").html('パー');
+        $("#judgment").html('あいこ');
+    }
+    
+});
+
+   
+
+</script>
+</body>
+</html>
